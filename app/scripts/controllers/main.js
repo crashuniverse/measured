@@ -1,10 +1,12 @@
 'use strict';
 
 angular.module('measuredApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('MainCtrl', ['$scope', 'parsely',
+		function($scope, parsely) {
+			$scope.postMessage = function(weight) {
+				parsely.postMessage(weight, function(data) {
+					console.log(data);
+				});
+			};
+		}
+	]);
