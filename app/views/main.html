@@ -1,8 +1,11 @@
-<div>
-<h4>Save weight</h4>
-<form>
-<input type="text" placeholder="Enter current weight here" ng-model="weight">
-<br/>
-<button class="btn btn-primary" ng-click="postMessage(weight)">Save</button>
-</form>
+<div ng-show="app.input">
+	<h4>Save weight</h4>
+	<form>
+	<input type="text" placeholder="Enter current weight here" ng-model="weight">
+	<br/>
+	<button class="btn btn-primary" ng-click="app.postMessage(weight)">Save</button>
+	</form>
+</div>
+<div ng-show="app.output">
+	<p class="alert alert-success">Successfully sent weight.</p>
 </div>
