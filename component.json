@@ -8,6 +8,8 @@
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
-    "angular-scenario": "~1.0.5"
+    "angular-scenario": "~1.0.5",
+    "nnnick-chartjs": "",
+    "underscore": "~1.5.1"
   }
 }

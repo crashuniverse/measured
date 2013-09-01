@@ -25,15 +25,29 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view></div>
+    
+    <div class="navbar">
+    <div class="navbar-inner">
+    <a class="brand" href="#/">measured</a>
+    <ul class="nav">
+      <li><a href="#/">Home</a></li>
+      <li><a href="#/view">View</a></li>
+    </ul>
+    </div>
+    </div>
 
+    <div class="container" ng-view>
+    
     <script src="components/angular/angular.js"></script>
+    <script src="components/nnnick-chartjs/Chart.min.js"></script>
+    <script src="components/underscore/underscore-min.js"></script>
 
     <!-- build:js scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/parsely.js"></script>
     <script src="scripts/services/parseConfig.js"></script>
+    <script src="scripts/controllers/view.js"></script>
     <!-- endbuild -->
   </body>
 </html>

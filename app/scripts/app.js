@@ -7,6 +7,10 @@ angular.module('measuredApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/view', {
+        templateUrl: 'views/view.html',
+        controller: 'ViewCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

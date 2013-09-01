@@ -254,6 +254,8 @@ module.exports = function (grunt) {
             'components/angular/angular.min.js',
             'components/es5-shim/es5-shim.min.js',
             'components/json3/lib/json3.min.js',
+            'components/nnnick-chartjs/Chart.min.js',
+            'components/underscore/underscore-min.js',
             'images/{,*/}*.{gif,webp}',
             'styles/fonts/*'
           ]
