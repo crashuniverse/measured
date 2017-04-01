@@ -1,42 +1,36 @@
 'use strict';
 
 angular.module('measuredApp')
-  .factory('parsely', ['$http', 'parseConfig',
-    function($http, parseConfig) {
+  .factory('parsely', [
+    function() {
 
-      var postMessage = function(weight, callback) {
-        var url = 'https://api.parse.com/1/classes/Weight';
-        var jsonMessage = {
-          'text': weight
-        };
-
-        $http({
-          method: 'POST',
-          url: url,
-          headers: parseConfig.headers,
-          contentType: 'application/json',
-          data: jsonMessage
-        })
-          .success(function(data) {
-            callback(data);
-            console.log('Weight: ' + weight);
-          })
-          .error(function() {
-            console.log('some problem with sending message');
+      var postMessage = function(data) {
+        return new Promise(function(resolve) {
+          var weight = {
+            text: data,
+            _created_at: {
+              date: new Date().toISOString()
+            }
+          };
+          return firebase.database().ref('/weights/').once('value').then(function(snapshot) {
+            var weights = snapshot.val();
+            var newKey = weights.length;
+            var updates = {};
+            updates['/weights/' + newKey] = weight;
+            firebase.database().ref().update(updates);
+            resolve(true);
           });
-      };
-
-      var getWeights = function(callback) {
-        var url = 'https://api.parse.com/1/classes/Weight';
-        $http({
-          method: 'GET',
-          url: url,
-          headers: parseConfig.headers,
-          contentType: 'application/json',
-        }).success(function(data) {
-          callback(data.results);
         });
-      };
+      }
+
+      var getWeights = function() {
+        return new Promise(function(resolve) {
+          firebase.database().ref('/weights/').once('value').then(function(snapshot) {
+            var weights = snapshot.val();
+            resolve(weights);
+          });
+        });
+      }
 
       // Public API here
       return {
