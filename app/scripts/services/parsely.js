@@ -8,7 +8,7 @@ angular.module('measuredApp')
         return new Promise(function(resolve) {
           var weight = {
             text: data,
-            _created_at: {
+            '_created_at': {
               date: new Date().toISOString()
             }
           };
@@ -21,7 +21,7 @@ angular.module('measuredApp')
             resolve(true);
           });
         });
-      }
+      };
 
       var getWeights = function() {
         return new Promise(function(resolve) {
@@ -30,7 +30,7 @@ angular.module('measuredApp')
             resolve(weights);
           });
         });
-      }
+      };
 
       // Public API here
       return {

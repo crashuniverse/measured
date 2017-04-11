@@ -15,7 +15,7 @@ module.exports = function (grunt) {
   };
 
   try {
-    yeomanConfig.app = require('./component.json').appPath || yeomanConfig.app;
+    yeomanConfig.app = require('./bower.json').appPath || yeomanConfig.app;
   } catch (e) {}
 
   grunt.initConfig({
@@ -254,7 +254,7 @@ module.exports = function (grunt) {
             'components/angular/angular.min.js',
             'components/es5-shim/es5-shim.min.js',
             'components/json3/lib/json3.min.js',
-            'components/nnnick-chartjs/Chart.min.js',
+            'components/chartjs/chart.min.js',
             'components/underscore/underscore-min.js',
             'images/{,*/}*.{gif,webp}',
             'styles/fonts/*'

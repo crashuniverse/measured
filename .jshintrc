@@ -20,8 +20,10 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false,
     "_": false,
-    "Chart": false
+    "angular": false,
+    "Chart": false,
+    "firebase": false,
+    "Promise": false
   }
 }
