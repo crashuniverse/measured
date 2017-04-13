@@ -1,13 +1,11 @@
 'use strict';
 
 angular.module('measuredApp')
-	.controller('ViewCtrl', ['$scope', 'parsely',
-		function($scope, parsely) {
+	.controller('ViewCtrl', ['$scope', 'firebaseFactory',
+		function($scope, firebaseFactory) {
 			$scope.app = {};
-
-			parsely.getWeights().then(function(data) {
+      firebaseFactory.getWeights().then(function(data) {
 				$scope.app.data = processData(data);
-        $scope.$apply();
       });
 
 			var processData = function(data){
