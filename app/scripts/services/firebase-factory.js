@@ -19,7 +19,7 @@ angular.module('measuredApp')
           updates['/weights/' + newKey] = weight;
           firebase.database().ref().update(updates);
           $rootScope.$apply(function() {
-            deferred.resolve(true);
+            deferred.resolve();
           });
         });
         return deferred.promise;

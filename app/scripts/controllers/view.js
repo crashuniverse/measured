@@ -23,10 +23,7 @@ angular.module('measuredApp')
 						data: series
 					}]
 				};
-
 				return processedData;
 			};
-
-
 		}
 	]);

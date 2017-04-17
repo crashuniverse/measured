@@ -3,7 +3,7 @@
 angular.module('measuredApp')
 	.directive('chart', function() {
 		return {
-			restrict: 'A',
+			restrict: 'E',
 			template: '<canvas></canvas>',
 			replace: true,
 			link: function postLink(scope, element, attrs) {
@@ -16,8 +16,10 @@ angular.module('measuredApp')
 					}
 				};
 
-				scope.$watch(attrs.data, function() {
-					drawChart();
+				scope.$watch(attrs.data, function(newValue, oldValue) {
+          if (newValue && newValue !== oldValue) {
+            drawChart();
+          }
 				});
 			}
 		};
