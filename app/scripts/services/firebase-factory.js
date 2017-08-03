@@ -29,8 +29,9 @@ angular.module('measuredApp')
         var deferred = $q.defer();
         firebase.database().ref('/weights/').once('value').then(function(snapshot) {
           var weights = snapshot.val();
+          var limitedHistoricalWeights = weights.slice(weights.length - 90, weights.length);
           $rootScope.$apply(function() {
-            deferred.resolve(weights);
+            deferred.resolve(limitedHistoricalWeights);
           });
         });
         return deferred.promise;
